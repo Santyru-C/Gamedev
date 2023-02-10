@@ -1,23 +1,20 @@
 extends KinematicBody2D
 
-export (int) var speed = 200
+export (int) var speed = 50
 
+var rng = RandomNumberGenerator.new()
+var initial_rotation = 1
+var direction = Vector2()
 var velocity = Vector2()
 
-func get_input():
-	velocity = Vector2()
+func _ready():
+	rng.randomize()
+	initial_rotation = 50#rng.randf_range(-3.14, 3.14)
+	direction = Vector2(1, 1).rotated(initial_rotation)
 	
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += 100
-	if Input.is_action_pressed("ui_left"):
-		velocity.x -= 100
-	if Input.is_action_pressed("ui_down"):
-		velocity.y += 100
-	if Input.is_action_pressed("ui_up"):
-		velocity.y -= 100
-	velocity = velocity * speed
-
 func _physics_process(delta):
-	get_input()
-	velocity = move_and_slide(velocity)
+	velocity = direction * speed
+
+	var collides = move_and_collide(velocity * delta)
+
 
