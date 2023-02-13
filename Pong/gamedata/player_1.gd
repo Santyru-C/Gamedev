@@ -19,8 +19,6 @@ func get_input():
 func _physics_process(_delta):
 	get_input()
 	velocity = move_and_slide(velocity)
-	print(velocity)
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
