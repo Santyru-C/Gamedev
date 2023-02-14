@@ -21,3 +21,6 @@ func _physics_process(delta):
 		speed += 25
 
 
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
+	print("hello")
