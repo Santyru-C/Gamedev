@@ -21,7 +21,3 @@ func _physics_process(delta):
 	if collides:
 		direction = direction.bounce(collides.normal)
 		speed += 25
-
-
-func _on_VisibilityNotifier2D_screen_exited():
-	pass
