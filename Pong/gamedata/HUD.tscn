@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://HUD.gd" type="Script" id=1]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="P1_score" type="Label" parent="."]
+anchor_right = 0.827
+margin_left = 250.0
+margin_top = 25.0
+margin_right = -446.848
+margin_bottom = 205.0
+text = "0"
+align = 1
+valign = 1
+
+[node name="P2_score" type="Label" parent="."]
+margin_left = 700.0
+margin_top = 25.0
+margin_right = 850.0
+margin_bottom = 205.0
+text = "0"
+align = 1
+valign = 1
+
+[node name="start" type="Button" parent="."]
+margin_left = 539.0
+margin_top = 338.0
+margin_right = 551.0
+margin_bottom = 358.0
+text = "Start"
+
+[node name="message_timer" type="Timer" parent="."]
+
+[node name="message" type="Label" parent="."]
+margin_left = 512.0
+margin_top = 274.0
+margin_right = 552.0
+margin_bottom = 288.0
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="timeout" from="message_timer" to="." method="_on_message_timer_timeout"]
