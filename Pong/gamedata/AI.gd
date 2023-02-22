@@ -1,7 +1,6 @@
 extends KinematicBody2D
 export (int) var speed = 400
 
-var ball_position_y = Vector2()
 var racket_position_y = Vector2()
 var direction = Vector2()
 var velocity = Vector2()
@@ -21,7 +20,7 @@ func follow(ball_position):
 func _physics_process(_delta):
 	var ball = get_tree().get_root().get_node("Main").ball
 	
-	if is_instance_valid(ball):
+	if is_instance_valid(ball) and ball.get_position().x > 250:
 		follow(ball.get_position().y)
 	else:
 		direction.y = 0
